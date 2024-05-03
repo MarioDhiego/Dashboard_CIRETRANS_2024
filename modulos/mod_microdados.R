@@ -77,8 +77,24 @@ tabPanel("CIRETRAN HOMOLOGADAS",
              DiagrammeROutput(NS(id,"med2"))
            )
          )
+         ),
+tabPanel("POSTO DE ATENDIMENTO",
+         #==============================================================================#
+         #1.4 Pareamento                                                                 ----
+         fluidRow(
+           #1.4.1 Etapa 1                                                                  ----
+           box(
+             width = 12,
+             title = "Posto",
+             status = "primary",
+             solidHeader = TRUE,
+             collapsible = TRUE,
+             height = 50,
+             DiagrammeROutput(NS(id,"med3"))
+           )
          )
-        )
+         )
+    )
   )
 }
 #==============================================================================#
@@ -221,9 +237,7 @@ A5-->A6[Canãa dos Carajás]
 A6-->A7[Curionópolis]
 ", width = 1000)
 })
-
-
-
+#==============================================================================#
 #2.4.1 Diagrama med2                                                            ----
 
 output$med2 <- renderDiagrammeR({
@@ -241,8 +255,27 @@ K-->L[Juruti]
 L-->M[Viseu]
 ", width = 700)
 })
+#==============================================================================#
+#==============================================================================#
+#2.4.1 Diagrama med3                                                            ----
 
-
+output$med3 <- renderDiagrammeR({
+mermaid("
+graph TD
+A[DETRAN-PA]-->B[POSTO DE ATENDIMENTO]
+B-->C[Belém]
+C-->D[Antônio Barreto]
+D-->F[Shopping Bosque]
+F-->G[Shopping Metrópole]
+G-->H[Shopping Pátio Belém]
+B-->I[Marabá]
+I-->J[Shopping Pátio Marabá]
+B-->K[Parauapebas]
+K-->L[Shopping Karajás]
+B-->M[Santarém]
+M-->N[Estação Cidadania]
+", width = 1000)
+})
 
 
 

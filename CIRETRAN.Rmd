@@ -1,0 +1,575 @@
+---
+title: "Circunscrição Regionais de Trânsito - DETRAN/PA" 
+#subtitle: "Relatórios Dinâmicos"
+author: 
+- name: Mário Diego Rocha Valente^[Estatístico, Analista de Trânsito, mario.valente@detran.pa.gov.br]
+- name: Kleber Bezerra Salim^[GEREST, kleber.salim@detran.pa.gov.br]
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    fig_width: 7 
+    fig_height: 6 
+    fig_caption: true
+    df_print: paged
+    highlight: textmate
+    theme: cerulean
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    number_sections: true 
+  pdf_document:
+    toc: yes
+    toc_depth: '10'
+abstract: "As Circunscrições Regionais de Trânsito (CIRETRANS) do Estado do Pará possuem duas classificações, determinadas como tipo “A” e tipo “B”. As CIRETRANS tipo “A” realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo “B”, com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e trânsito, conforme disposto na Lei nº 7.594/2011."
+fontsize: 14pt
+---
+
+
+library(expss)
+
+
+
+```{=html}
+<style>
+body{text-align: justify}
+</style>
+```
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+```{r memoria, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE, results='asis'}
+memory.limit (24576)
+library(distill)
+library(flexdashboard)
+library(xaringan)
+library(tinytex)
+```
+
+```{r GERAL, echo=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE
+)
+```
+
+# **Introdução**
+
+O Departamento de Trânsito do Estado do Pará (DETRAN-PA) é o órgão Executivo de Trânsito e Executivo Rodoviário do Sistema Nacional de Trânsito no estado do Pará nos termos dos arts. 8°, 21 e 22 da Lei nº 9.503, de 23 de setembro de 1997, que instituiu o Código de Trânsito Brasileiro (CTB), criado pela Lei Nº 4.444, de 20 de dezembro de 1972, integrante do Sistema de Segurança Pública do Estado do Pará, Autarquia com personalidade jurídica de direito público, dotada de autonomia administrativa, financeira e patrimonial, vinculada a Secretaria de Estado de Segurança Pública e Defesa Social, tendo por missão institucional assegurar a execução da Política Nacional de Trânsito no âmbito de sua jurisdição, de forma articulada e integrada, zelando pelo cumprimento da Lei com vistas a garantia de um trânsito em condições seguras para todos com a promoção, valorização e preservação da vida.
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+# **Circunscrição Regional de Trânsito**
+
+As Circunscrições Regionais de Trânsito (CIRETRAN's) são unidades administrativas do DETRAN-PA, sediadas nos Municípios do interior do Estado, com competência para desenvolver ações de planejamento, controle, execução, fiscalização e avaliação das atividades relacionadas ao cadastro de veículos, ao processo de habilitação de condutores, operação, fiscalização, engenharia e educação de trânsito, no âmbito de sua circunscrição, previstas no CTB.
+
+As Circunscrições Regionais de Trânsito são classificadas nas categorias "A" e "B", e suas classificações e implantações devem ser aprovadas pelo CONADM e homologadas por ato do Chefe do Poder Executivo. Conforme dito anteriormente, as Circunscrições Regionais de Trânsito -- CIRETRAN's possuem duas classificações, determinadas como tipo "A" e tipo "B". As CIRETRANS tipo "A" realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo "B", com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011. Conforme dito anteriormente as Circunscrições Regionais de Trânsito -- CIRETRAN's possuem duas classificações de acordo com Lei na Lei nº 7.594/2011 artigos 17 E 18:
+
+-   [x] **Art. 17**: As Ciretrans "A" são unidades administrativas subordinadas diretamente ao Coordenador das Ciretrans, competindo-lhes o planejamento, controle, operações, fiscalização e educação de trânsito, registro e licenciamento de veículos, habilitação de condutores, engenharia de trânsito, de acordo com o Código de Trânsito Brasileiro e o disposto nesta Lei, dentro de suas respectivas circunscrições administrativas.
+
+-   [x] **Art. 18**: As Ciretrans "B" são unidades administrativas subordinadas diretamente ao Coordenador das Ciretrans, competindo-lhes o planejamento, controle, registro e licenciamento de veículos, habilitação de condutores, de acordo com o Código de Trânsito Brasileiro e o disposto nesta Lei, dentro de suas respectivas circunscrições administrativas.
+
+Sendo que as CIRETRANS tipo "A" realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo "B", com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011.
+
+Atualmente, o DETRAN possui 12 CIRETRAN's do tipo A e 39 CIRETRAN's do tipo B cujos municípios onde estão instaladas contemplam o total de 87% da frota de veículos e 91% do total de condutores habilitados registrados no Estado. Entretanto esta grande cobertura não tem sido suficiente para reduzir a inadimplência dos veículos registrados, o aumento de CNH's vencidas, bem como os índices de acidentes de trânsito no estado do Pará, o que sugere a necessidade de uma maior efetividade da presença do DETRAN no Estado.
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+# **Atividades das CIRETRAN'S**
+
+As CIRETRANS e suas delegacias são interligadas com o DETRAN-PA nos municípios onde está instalada, em todo o interior do estado, tendo a responsabilidade principal de exigir e impor a obediência às leis de trânsito e seu devido cumprimento, representando o DETRAN nas cidades onde não existe a delegacia desse órgão.
+
+Estando interligado com o DETRAN-PA, as CIRETRAN'S prestam todos os serviços necessários aos usuários de veículos de sua cidade, atende também toda a população procurando soluções e facilitando as necessidades dos condutores e proprietários de veículos, sem haver a necessidade de procurar delegacias de outras cidades ou mesmo precisar ir para longe solucionar problemas.
+
+-   Consultas sobre infrações recebidas;
+-   Consulta sobre pontos perdidos na Carteira Nacional de Habilitação (CNH);
+-   Informações constantes do arquivo sobre os veículos;
+-   Imposto sobre Propriedade de Veículos Automotores (IPVA);
+-   Licenciamento de veículos;
+-   Registro de veículos automotores;
+-   Seguro Obrigatório (DPVAT);
+-   Emissão de Carteira Nacional de Habilitação (CNH);
+-   Apreensão de CNH;
+-   Apreensão de veículos (caminhões, ônibus, motos, táxis, vans de transporte escolar, etc.);
+-   Liberação de documentos e de veículos.
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+# **Regiões Administrativa de Trânsito- RAT**
+
+O Diretor Geral do DETRAN-PA, no uso de suas atribuições legais, em especial ao constante no Art.57, IV do Anexo do Decreto Nº 1.635 de 2005 que homologa o Regimento Interno do DETRAN-PA; Considerando o disposto nos Artigos 120, 123 e incisos e 124 da Lei 9.503 de 23 de setembro de 1997 que institui o Código de Trânsito Brasileiro - CTB, resolve:
+
+-   Art. 1º Determinar que os processos de licenciamento anual de veículos que requeiram vistoria, expedição de 2ª via de CRV, alteração de características de veículos, inclusão ou baixa de reserva de domínio, transferência de jurisdição, mudança de categoria, alteração de dados cadastrais no documento do veículo, gravação ou regravação do chassi, regravação de motor e baixa de veículo só poderão ser realizados junto a este DETRAN-PA no domicílio ou residência do proprietário e/ou arredatário quando houver CIRETRAN e, não havendo Unidades do DETRAN-PA no município de domicílio ou residência prorietário e/ou arrendatário, os processos de serviços deverão ser realizados em uma das CIRETRAN'S da **Região de Trânsito** do domicílio ou residência do prorietário conforme o anexo I da **Portaria Nº681 de 2013**.
+
+    -   1° O Posto Avançado da "Antônio Barreto" atenderá a todos sos serviços com cobertura aos Municípios da região de Trânsito de Belém conforme Anexo I desta Portaria.
+
+    -   2º Os postos de Atendimento das Concessionárias de Belém só poderão atender os serviços de primeiro emplacamento, trasnferência de propriedade e transferência de jurisdição de veículos transacionados diretamente com a Concesssionária.
+
+    -   3º O posto de Serviços do "Guamá" (Estação Cidadania) atenderá somente os serviços de primeiro emplacamento de veículos nacionais e importados sendo que estes necessitam de vistoria realizada pelo DETRAN-PA e o licenciamento anual de veículos que não requeiram vistoria.
+
+    -   4º Os demais Postos de atendimento (de Belém poderão atender todos os serviços veículos desde que os serviços que requeiram vistoria, essa (visoria) seja realizada somente pela SEDE).
+
+    -   5º Os Parques de Retenções de todas as Ciretran's atenderão os serviços cuja finalidade seja a liberação de veículo que se encontre lá retido independentemente da jurisdição do veículo.
+
+-   [x] **Região de Trânsito de Belém**: Ananindeua, Belém, Benevides, Cachoeira do Arari, Marituba, Ponta de Pedras, Salvaterra, Santa Bárbara, Santa Cruz do Arari, São Sebastião da Boa Vista e Soure.
+
+-   [x] **Região de Trânsito de Santarém**: Alenquer Almeirim, Aveiro, Belterra, Curuá, Faro, Juruti, Mojuí dos Campos, Monte Alegre, Òbidos, Oriximiná, Prainha, Santarém e Terra Santa.
+
+-   [x] **Região de Trânsito de Castanhal**: Bujaru, Castanhal, Colares, Concórdia do Pará, Curuçá, Igarapé-Açú, Inhangapi, Irituia, Magalhães, Maracanã, Marapanim, São caetano de Odivelas, São Domingos do capim, São Francisco do Pará, São João da Ponta, São Miguel do Guamá, Santa Izabel do Pará, Santa Maria do Pará, Santo Antônio do Tauá, Terra Alta, Tomé-Açú e Vigia.
+
+-   [x] **Região de Trânsito de Marabá**: Abel Figueiredo, Bom Jesus do Tocantins, Brejo Grande do Araguaia, Itupiranga, Jacundá, Marabá, Nova Ipixuna, Palestina do Pará, Piçarra, Rondon do Pará, São Domingos do Araguaia, São Geraldo do Araguaia e São João do Araguaia.
+
+-   [x] **Região de Trânsito de Abaetetuba**: Abaetetuba, Acará, Baião Barcarena, Cametá, Igarapé-Miri, Limoeiro do Ajuru, Mocajuba, Moju, Oueiras do Pará, Tailândia.
+
+-   [x] **Região de Trânsito de Altamira**: Altamira, Anapu, Brasil Novo, Gurupá, Medicilândia, Placas, Porto de Moz, Senador José Porfírio, Uruará e Vitória do Xingu.
+
+-   [x] **Região de Trânsito de Capanema**: Augusto Corrêa, Bonito, Bragança, Cachoeira do Piriá, Capanema, Capitão Poço, Garrafão do Norte, NOva ESperança do Piriá, Nova Timboteua, Ourém, Peixe-Boi, Primavera, Quatipuru, Salinópolis, Santarém Novo, São João de Pirabas, Santa Luzia do Pará, Traquateua e Viseu.
+
+-   [x] **Região de Trânsito de Paragominas**: Dom Eliseu, Ipixuna do Pará, Mãe do Rio, Paragominas e Ulianópolis.
+
+-   [x] **Região de Trânsito de Tucuruí**: Breu Branco, Goianésia, Novo Repartimento, Pacajá e Tucuruí.
+
+-   [x] **Região de Trânsito de Redenção**: Àgua Azul do Norte, Bannach, Conceição do Araguaia, Cumaru do Norte, Floresta do Araguaia, Ourilândia do Norte, Pau D'arco, Redenção, Rio Maria, Santana do Araguaia, Santa Maria das Barreiras, São Félix do Xingu, Sapucaia, Tucumã e Xinguara.
+
+-   [x] **Região de Trânsito de Itaituba**: Itaituba, Jacareacanga, Novo Progresso, Rurópolis e Trairão.
+
+-   [x] **Região de Trânsito de Parauapebas**: Cannãa dos Carajás, Curionópolis, Eldorado dos Carajás e Parauapebas.
+
+-   [x] **Região de Trânsito de Breves**: Afuá, Anajás, Bagre, Breves, Chaves, Curralinho, Lengaço, Muaná e Portel.
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Ciretran do Tipo A**
+
+São classificadas de acordo com a legislação vigente no quadro1, como 12 unidades de CIRETRAN do Tipo "A", as sediadas nos municípios abaixo, com base na **Lei nº 7.594/2011**.
+
+Durante as mudanças de gestão na àrea de segurança viária, foi ativado o CONADM pelo Diretor Geral do DETRAN-PA, Marcelo Lima Guedes, e com corum, com base em reunião técnica, foram **Reclassificados via Decreto Lei nº 432/2019**, os Municípios de **Bragança** e **São Félix do Xingu**. Assim, passando para 14 Ciretrans do Tipo A.
+
+Em mudanças no teatro de operações do que tange a gestão da autarquia de trânsito, foi ativado o CONADM pela Diretora Geral do DETRAN-PA, Renata Mirella, tendo corum mínimo, foram **Reclassificados via Decreto Lei nº  /2023**, os Municípios de **Ananindeua**, **Cametá**, **Salinópolis** e **Tailândia**, aumentado para 18 CIRETRAN do Tipo A.
+
+
+
+
+
+
+```{r diagrama2, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(rhandsontable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+mermaid("
+graph TD
+A[DETRAN-PA]-->B[CIRETRAN A]
+B-->C[LEI Nº7594/2011]
+B-->D[LEI Nº432/2019]
+B-->E[LEI Nº/2023]
+C-->F[Santarém]
+F-->G[Castanhal]
+G-->H[Marabá]
+H-->I[Abaetetuba]
+C-->J[Altamira]
+J-->K[Capanema]
+K-->L[Paragominas]
+L-->M[Tucuruí]
+C-->N[Redenção]
+N-->O[Itaituba]
+O-->P[Parauapebas]
+P-->Q[Breves]
+D-->R[BRAGANÇA]
+R-->S[SÃO FÉLIX]
+E-->T[ANANINDEUA]
+T-->U[CAMETÁ]
+U-->V[SALINÓPOLIS]
+V-->X[TAILÂNDIA]
+", width = 1000)
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Ciretran do Tipo B**
+
+São classificadas de acordo com a legislação vigente no quadro1, como 34 unidades de CIRETRAN do **Tipo "B"**, as sediadas nos municípios abaixo, com base na **Lei nº 7.594/2011**.
+
+```{r diagrama3, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+mermaid("
+graph TD
+A[LEI Nº7594/2011]-->B[DETRAN-PA]
+B-->C[CIRETRAN TIPO B]
+C-->D[Soure]
+D-->E[Alenquer]
+E-->F[ALmeirim]
+F-->G[Monte Alegre]
+G-->H[Obidos]
+H-->I[Vigia]
+
+C-->J[Oriximiná]
+J-->K[Iguarapé-Açú]
+K-->L[São Miguel]
+L-->M[Santa Luzia]
+M-->N[Tomé-Açú]
+N-->O[Itupiranga]
+C-->P[Jacundá]
+P-->Q[Rondon]
+Q-->R[São Geraldo]
+R-->S[Barcarena]
+S-->T[Igarapé-Miri]
+T-->U[Medicilândia]
+C-->V[Uruará]
+V-->W[Capitão Poço]
+W-->X[Ourilândia do Norte]
+X-->Y[Dom Eliseu]
+Y-->Z[Mãe do Rio]
+Z-->A1[Novo Repartimento]
+C-->A2[Conceição do Araguaia]
+A2--> A3[Santana do Araguaia]
+A3-->A4[Tucumã]
+A4-->A5[Novo Progresso]
+A5-->A6[Canãa dos Carajás]
+A6-->A7[Curionópolis]
+", width = 1000)
+
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Posto de Atendimento**
+
+São classificadas de acordo com a legislação vigente (**Lei nº 6.064 de 1997** e **Lei nº7.594 de 2011**), as 09 Unidades de Posto de Atendimento em vigência, com prestação de serviços paralelos às CIRETRANS.
+
+```{r diagrama4, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+mermaid("
+graph TD
+A[DETRAN-PA]-->B[POSTO DE ATENDIMENTO]
+B-->C[Belém]
+C-->D[Antônio Barreto]
+D-->F[Shopping Bosque]
+F-->G[Shopping Metrópole]
+G-->H[Shopping Pátio Belém]
+B-->I[Marabá]
+I-->J[Shopping Pátio Marabá]
+B-->K[Parauapebas]
+K-->L[Shopping Karajás]
+B-->M[Santarém]
+M-->N[Estação Cidadania]
+", width = 1000)
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Unidades Homologadas**
+
+São classificadas de acordo com a legislação vigente (**Lei nº 6.064 de 1997** e **Lei nº7.594 de 2011**), as 06 Unidades de CIRETRANS homologadas, porém, não implantadas na prática.
+
+```{r diagrama5, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+mermaid("
+graph TD
+A[DETRAN-PA]-->B[CONADM]
+B-->C[HOMOLOGADAS]
+C-->D[2008]
+D-->E[Ulianópolis]
+C-->F[2009]
+F-->G[Rurópolis]
+G-->H[Marituba]
+C-->I[2013]
+I-->J[São Domingos]
+C-->K[2019]
+K-->L[Juruti]
+L-->M[Viseu]
+", width = 700)
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Serviços de Registro de Veículos**
+
+De acordo com a **Portaria nº3883/2021/DG/DHCRV/CRV/DETRAN** de 29 de outubro de 2021 somado a **Portaria nº3383/2021/DG/DHCRV/CRV/DETRAN** de 06 de dezembro de 2021, Estabelece procedimentos para serviços de Registro de Veículos, nas Unidades de Atendimento do DETRAN-PA. O diretor geral do Departamento de Trânsito do Estado do Pará, no uso de suas atribuições legais, em especial ao constante do Art. 57, IV do anexo do Decreto nº 1.635 de 2005 que homologa o **Regimento Interno** do DETRAN-PA;
+
+Considerando o dispositivo nos Artigos 120, 123 e incisos e 124 e incisos da **Lei nº9.503/1997** que institui o Código de Trânsito Brasileiro.
+
+-   **Art. 1º** - Determinar que nas CIRETRANS, os processos de:
+
+    -   Expedição de 2ª via do CRV;
+    -   Alteração de Características de veículos;
+    -   Inclusão ou Baixa de Reversa de Domínio;
+    -   Transferência de Propriedade;
+    -   Transferência de Jurisdição;
+    -   Mudança de Categoria;
+    -   Alteração de dados Cadastrais do Documento do Veículo;
+    -   Gravação ou Regravação de Chassi;
+    -   Regravação de Motor e Baixa do Veículo;
+
+Só poderão ser realizados de acordo com o **Município de Registro do Veículo**, conforme anexo I desta Portaria.
+
+-   **§1º** - Nos postos (Estação Cidadania do Governo do Estado do Pará) dos municípios onde houver CIRETRAN, o atendimento será de acordo com procedimento estabelecido para a CIRETRAN.
+
+-   **§2º** - Os veículos retidos em parques de retenção, terão seus serviços atendidos na CIRETRAN do município em que estejam recolhidos, independente da jurisdição do mesmo.
+
+-   **§3º** - Se o interessado desejar realizar na CIRETRAN ou Posto, os processos de serviços de que se trata este artigo com município de emplacamento diferente do contido no anexo I desta portaria,a será obrigatório também a realização do serviço de mudança de jurisdição com o pagamento da taxa administrativa correspondente, e, no ato da solicitação do serviço o interessado deverá apresentar comprovante do atual domicílio ou residência em seu nome, e caso não esteja o imóvel no seu nome deverá apresentar declaração de residência firmada na presença do atendente.
+
+-   **Art. 2º** - Determinar que no **Posto Avançado Antônio Barreto**, **Estação Cidadania Pátio Belém**, **Estação Cidadania Metrópole Ananindeua** e **Estação Cidadania Grão Pará**, poderão ser atendidos todos os serviços de veículo, independente da jurisdição, mediante procuração.
+
+-   **Paragrafo Ùnico** - Os processos gerados através de **Despachantes Documentalista**, só deverão ser recpcionados/atendidos se o Despachante estiver devidamente cadastrado no DETRAN/PA.
+
+-   **Art. 3º** - Determinar que no **Posto do Parque de Retenção de BELÉM**, serão atendidos todos os serviços, independentemente da jurisdição do veículo, desde que o mesmo esteja retido naquela unidade.
+
+-   **Art. 4º** - No **DETRAN SEDE**, em caso de divergências ou procedimentos não contemplados na presente normativa, serão atendidos todos os serviços de veículos, independente da jurisdição do veículo.
+
+-   **Art. 5º** - Revogar a **Portaria nº2200/2020/DG/DHCRV/CRV/DETRAN**, de 31/08/2020.
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+## **Características das CIRETRANS**
+### **Empresas/Clínicas**
+
+```{r tabe1, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+
+setwd("C:/Users/mario.valente/Documents/GitHub_scripts/Dash_Board_Pareamento_2022/CIRETRAN")
+CIRETRAN_EMPRESAS <- read_excel("CIRETRAN_EMPRESAS.xls")
+
+datatable(CIRETRAN_EMPRESAS, 
+          plugins = 'natural',
+          extensions = 'Buttons',
+          filter = 'top',
+          options = list(dom = 'Blfrtip', buttons = c('copy','csv', 'excel', 'pdf', 'print'),
+          engthMenu = list(c(5,10,25,50,-1)), c(5,10,25,50,"All"),
+          pageLength = 5, 
+          autoWidth = TRUE),
+          rownames = FALSE,
+          class = 'cell-border compact stripe hover order-column dt-body-center',
+          style = 'bootstrap',
+          editable = 'cell',
+          colnames = c('Municípios', 'Região de Integração', 'RAT', 'Tipos de Ciretran', 'Possui Clínicas', 'Biometria', 'Emissão', 'Estação Coleta', 'Estação Prova','Empresas de Vistoria', 'Empresas Estampadoras'),
+          caption = 'Características Gerais Sobre as CIRETRANS no Estado do Pará, 2022.')
+
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+
+### **Serviços**
+
+```{r tabe2, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(rhandsontable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+
+setwd("C:/Users/mario.valente/Documents/GitHub_scripts/Dash_Board_Pareamento_2022/CIRETRAN")
+CIRETRAN_SERVICOS <- read_excel("CIRETRAN_SERVICOS.xls")
+
+datatable(CIRETRAN_SERVICOS, 
+          plugins = 'natural',
+          extensions = 'Buttons',
+          filter = 'top',
+          options = list(dom = 'Blfrtip', buttons = c('copy','csv', 'excel', 'pdf', 'print'),
+          engthMenu = list(c(5,10,25,50,-1)), c(5,10,25,50,"All"),
+          pageLength = 5, 
+          autoWidth = TRUE),
+          rownames = FALSE,
+          class = 'cell-border compact stripe hover order-column dt-body-center',
+          style = 'bootstrap',
+          editable = 'cell',
+          colnames = c('Municípios', 'Região de Integração', 'RAT', 'Tipos de Ciretran', 'Gerente', 'Nº Vistoriador', 'Nº de Examinador', 'Nº de Agentes', 'Parque de Retenção', 'Situação do Imóvel', 'Pista de Exame', 'Nº Servidores'),
+          caption = 'Características Gerais Sobre Serviços das CIRETRANS no Estado do Pará, 2022.')
+
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+
+
+
+
+### **Frota Geral**
+
+```{r tabe3, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(rhandsontable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+
+
+
+setwd("C:/Users/mario.valente/Documents/GitHub_scripts/Dash_Board_Pareamento_2022/CIRETRAN")
+CIRETRAN_FROTA2 <- read_excel("CIRETRAN_FROTA2.xls")
+
+datatable(CIRETRAN_FROTA2, 
+          plugins = 'natural',
+          extensions = 'Buttons',
+          filter = 'top',
+          options = list(dom = 'Blfrtip', buttons = c('copy','csv', 'excel', 'pdf', 'print'),
+          engthMenu = list(c(5,10,25,50,-1)), c(5,10,25,50,"All"),
+          pageLength = 5, 
+          autoWidth = TRUE),
+          rownames = FALSE,
+          class = 'cell-border compact stripe hover row-border order-column dt-body-left',
+          style = 'bootstrap',
+          editable = 'cell',
+          colnames = c('Municípios', 'Frota Geral', 'Frota Adimplente', ' Frota Inadimplente', '% Inadimplência', '1º Emplacamento', 'Mudança Jurisdição'),
+          caption = 'Frota Veicular Geral por CIRETRANS no Estado do Pará, até dezembro de 2021.')
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
+
+### **Frota por Tipo**
+
+```{r tabe4, echo=FALSE, message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(plotly)
+library(readxl)
+library(htmltools)
+library(DiagrammeR)
+library(dplyr)
+library(htmlwidgets)
+library(sparkline)
+library(formattable)
+library(rhandsontable)
+library(DT)
+library(knitr)
+library(kableExtra)
+
+
+
+
+setwd("C:/Users/mario.valente/Documents/GitHub_scripts/Dash_Board_Pareamento_2022/CIRETRAN")
+CIRETRAN_FROTA <- read_excel("CIRETRAN_FROTA.xls")
+
+datatable(CIRETRAN_FROTA, 
+          plugins = 'natural',
+          extensions = 'Buttons',
+          filter = 'top',
+          callback = JS('table.page("next").draw(false);'),
+          options = list(dom = 'Blfrtip', buttons = c('copy','csv', 'excel', 'pdf', 'print'),
+          engthMenu = list(c(5,10,25,50,-1)), c(5,10,25,50,"All"),
+          pageLength = 5, 
+          autoWidth = TRUE),
+          rownames = TRUE,
+          class = 'cell-border compact hover order-column row-border stripe dt-body-center',
+          style = 'bootstrap',
+          editable = 'cell',
+          colnames = c('Municípios', 'Auto', 'Caminhão', 'Trator', 'Caminhonete', 'Camioneta', 'Moto', 'Ônibus', 'Reboque', 'Triciclo', 'Utilitário', 'Total'),
+          caption = 'Frota Veicular e Habilitados por CIRETRANS no Estado do Pará, até dezembro de 2021.')
+
+```
+
+::: progress
+::: {.progress-bar style="width: 100%;"}
+:::
+:::
