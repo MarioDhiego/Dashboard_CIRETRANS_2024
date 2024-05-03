@@ -86,15 +86,17 @@ sidebarMenu(id = "tabs",
             menuItem("Região de Trânsito", tabName="socioeconomico", icon=icon("male")),
             menuItem("Tipos de Ciretran's", tabName="condicao_da_vitima",icon=icon("wheelchair")),
             menuItem("Tipos de Serviços", tabName="ocorrencias", icon=icon("calendar")),
-            menuItem("Características", tabName="pictogramas", icon=icon("road-bridge")),
-            menuItem("RODOVIA ESTADUAL", tabName="custo_hospitalar", icon=icon("road-bridge")),
-            menuItem("MAPAS", tabName="localizacao", icon=icon("globe")),
-            menuItem("INDICADORES", tabName="taxas", icon=icon("dashboard"),
-            menuSubItem("Taxa de Mortalidade", tabName="taxas1"),
-            menuSubItem("Taxa de Internação", tabName="taxas4"),
-            menuSubItem("Taxa de Motorização", tabName="taxas2"),
-            menuSubItem("Taxa de Crescimento", tabName="taxas3")
-                                 )
+            menuItem("Características", tabName="pictogramas", icon=icon("road-bridge"))
+                     #,
+            #menuItem("RODOVIA ESTADUAL", tabName="custo_hospitalar", icon=icon("road-bridge")),
+            #menuItem("MAPAS", tabName="localizacao", icon=icon("globe")),
+            #menuItem("INDICADORES", tabName="taxas", icon=icon("dashboard"),
+            #menuSubItem("Taxa de Mortalidade", tabName="taxas1"),
+            #menuSubItem("Taxa de Internação", tabName="taxas4"),
+            #menuSubItem("Taxa de Motorização", tabName="taxas2"),
+            #menuSubItem("Taxa de Crescimento", tabName="taxas3")
+            #                     )
+            
                                )
     ),
 #===============================================================================#
@@ -114,14 +116,15 @@ body = dashboardBody(
 tabItems(
   tabItem(tabName="sobre1",
           tabBox(id="t1", width=12,
-                 tabPanel("Ciretran's",icon=icon("address-card"),
+                 tabPanel("CIRETRAN'S",icon=icon("address-card"),
                           fluidRow(column(width=7,
                                           position="left",solidHeader = TRUE,
                                           tags$img(
                                             id="foto1",
                                             src="ciretran.jpg",
                                             controls="controls",
-                                            width=750,height=500),
+                                            width=750,
+                                            height=500),
                                           tags$br(), 
                                           tags$a("Photo by Asdecom"),align="left"),
                                    column(width=5,
@@ -283,23 +286,23 @@ tabPanel("CRÉDITOS", icon=icon("phone"),
            
          )        
 ),
-                       #===============================================================================#
-                       tabPanel("SUGESTÕES",
-                                fluidRow(
-                                  column(
-                                    width=4,
-                                    position="center",
-                                    tags$br(),
-                                    tags$p(style="text-align: justify;font-si20pt",
-                                           strong("Reclamações, sugestões, críticas e elogios relacionados ao Anuário
+#===============================================================================#
+tabPanel("SUGESTÕES",
+         fluidRow(
+           column(
+             width=4,
+             position="center",
+             tags$br(),
+             tags$p(style="text-align: justify;font-si20pt",
+                    strong("Reclamações, sugestões, críticas e elogios relacionados ao Anuário
 Estatístico de Acidentes de Trânsito do DETRAN-PA podem ser registrados na Gerência de Análise Estatística de Trânsito, por intermédio do ")),
 tags$a("estatisticadetransito@detran.pa.gov.br", 
        href = "gerest@detran.pa.gov.br"),
-                                  )
-                                )
-                       )
-                )
-        ),
+           )
+         )
+)
+          )
+  ),
 #===============================================================================#
 tabItem(tabName="video1",
         tabBox(id="t2", 
@@ -357,65 +360,65 @@ tabItem(tabName = "conceitos",
                           )
                         )
                ),
-               #===============================================================================#
-               tabPanel("VÍTIMAS", icon = icon("skull-crossbones"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) ILESO: Pessoa que não apresenta nenhum sinal aparente de lesões provenientes da dinâmica do acidente e esteja orientada e consciente.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("2) FERIDO LEVE: Toda pessoa que, em consequência do sinistro, tenha sofrido lesões superficiais sem a necessidade de hospitalização, e que apresente, por consequência da dinâmica do sinistro, ao menos um sinal aparente da lista a seguir:")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("a) Pequenos cortes, contusões e escoriações (inclusive as provocadas por cinto de segurança);")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("b) Queimaduras de 1º grau (até 10% da superfície corporal);")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("c) Pequenas hemorragias externas;")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("d) Luxações e/ou fraturas fechadas e/ou abertas dos dedos."))
-                          ),
-                          column(
-                            width=4,
-                            tags$br(),      
-                            tags$p(style="text-align:justify;font-si20pt",
-                                   strong("3) FERIDO GRAVE: Vítimas de acidente cujos danos corporais (lesões) obriguem a um período de hospitalização superior a 24 horas.")),
-                            tags$br(), 
-                            tags$p(style="text-align:justify;font-si20pt",
-                                   strong("4) FATAL: É qualquer acidente de trânsito em que ocorra a Morte de, pelo menos uma pessoa, até 30 dias após a data do acidente.")),
-                            tags$br(), 
-                            tags$p(style="text-align:justify;font-si20pt",
-                                   strong("5) NÃO FATAL: É qualquer acidente de trânsito em que uma ou mais pessoas sofrem lesões, não ocasionando a morte de nenhuma delas até 30 dias após o acidente."))
-                          )
-                        )
-               ),
-               #===============================================================================#
-               tabPanel("VIA", icon = icon("road"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) VIA: Superfície onde transitam veículos, pessoas e animais, compreendendo a pista, a calçada, o acostamento, ilha, e canteiro central, dividindo-se em competências: municipal, estadual e federal;")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("2) RODOVIA: inclui todas as rodovias federais (BR), as rodovias do Pará (PA’s) e Estradas Vicinais (VC).")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("3) URBANA: Todas as vias do Pará, excluindo as Rodovias;")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("4) RURAL: Trecho de rodovia comprendido em área não edificada;"))
-                          )
-                        )
-               ),
-               tabPanel("PISTA", icon = icon("road"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) PISTA DUPLA: via em que exista um canteiro central separando dois leitos carroçáveis, independentemente dos sentidos estabelecidos para o trânsito. Pistas separadas por rios e por canteiros centrais extremamente largos, os quais impossibilitam a transposição de um leito carroçável para o outro, são consideradas como pistas simple;")),
+#===============================================================================#
+tabPanel("VÍTIMAS", icon = icon("skull-crossbones"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) ILESO: Pessoa que não apresenta nenhum sinal aparente de lesões provenientes da dinâmica do acidente e esteja orientada e consciente.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("2) FERIDO LEVE: Toda pessoa que, em consequência do sinistro, tenha sofrido lesões superficiais sem a necessidade de hospitalização, e que apresente, por consequência da dinâmica do sinistro, ao menos um sinal aparente da lista a seguir:")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("a) Pequenos cortes, contusões e escoriações (inclusive as provocadas por cinto de segurança);")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("b) Queimaduras de 1º grau (até 10% da superfície corporal);")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("c) Pequenas hemorragias externas;")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("d) Luxações e/ou fraturas fechadas e/ou abertas dos dedos."))
+           ),
+           column(
+             width=4,
+             tags$br(),      
+             tags$p(style="text-align:justify;font-si20pt",
+                    strong("3) FERIDO GRAVE: Vítimas de acidente cujos danos corporais (lesões) obriguem a um período de hospitalização superior a 24 horas.")),
+             tags$br(), 
+             tags$p(style="text-align:justify;font-si20pt",
+                    strong("4) FATAL: É qualquer acidente de trânsito em que ocorra a Morte de, pelo menos uma pessoa, até 30 dias após a data do acidente.")),
+             tags$br(), 
+             tags$p(style="text-align:justify;font-si20pt",
+                    strong("5) NÃO FATAL: É qualquer acidente de trânsito em que uma ou mais pessoas sofrem lesões, não ocasionando a morte de nenhuma delas até 30 dias após o acidente."))
+           )
+         )
+),
+#===============================================================================#
+tabPanel("VIA", icon = icon("road"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) VIA: Superfície onde transitam veículos, pessoas e animais, compreendendo a pista, a calçada, o acostamento, ilha, e canteiro central, dividindo-se em competências: municipal, estadual e federal;")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("2) RODOVIA: inclui todas as rodovias federais (BR), as rodovias do Pará (PA’s) e Estradas Vicinais (VC).")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("3) URBANA: Todas as vias do Pará, excluindo as Rodovias;")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("4) RURAL: Trecho de rodovia comprendido em área não edificada;"))
+           )
+         )
+),
+tabPanel("PISTA", icon = icon("road"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) PISTA DUPLA: via em que exista um canteiro central separando dois leitos carroçáveis, independentemente dos sentidos estabelecidos para o trânsito. Pistas separadas por rios e por canteiros centrais extremamente largos, os quais impossibilitam a transposição de um leito carroçável para o outro, são consideradas como pistas simple;")),
                                  tags$br(), 
                                  tags$p(style="text-align:justify;font-si20pt",
                                         strong("2) PISTA MÚLTIPLA: via em que exista mais de um canteiro central, caracterizando a presença de três ou mais leitos carroçáveis.")),
@@ -425,128 +428,127 @@ tabItem(tabName = "conceitos",
                           )
                         )
                ),
-               #===============================================================================#
-               tabPanel("RODOVIAS FEDERAIS", icon = icon("road"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("A Nomenclatura das Rodovias no Brasil, são definidos pelo Plano Nacional de Viação (DNIT, 2023).")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) Rodovias Radiais: São as rodovias que partem da Capital Federal em direção aos extremos do país. O sentido de quilometragem vai do Anel Rodoviário de Brasília em direção aos extremos do país, e tendo o quilometro zero de cada estado no ponto da rodovia mais próximo à capital federal.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Nomenclatura: BR-0XX")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Radiais no Pará: BR-010")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("2) Rodovias Longitudinal: São as rodovias que cortam o país na direção Norte-Sul. O sentido de quilometragem vai do norte para o sul. As únicas exceções deste caso são as BR-163 e BR-174 , que tem o sentido de quilometragem do sul para o norte.")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Nomenclatura: BR-1XX")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Longitudinal no Pará: BR-153, BR-155, BR-158 e BR-163 ")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("3) Rodovias Transversais: São as rodovias que cortam o país na direção Leste-Oeste. O sentido de quilometragem vai do leste para o oeste.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Nomenclatura: BR-2XX")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Transversais no Pará: BR-210, BR-222, BR-230 e BR-235"))
-                          ), 
-                          column(width=4,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("4) Rodovias Diagonais: Estas rodovias podem apresentar dois modos de orientação: Noroeste-Sudeste ou Nordeste-Sudoeste. A quilometragem se inicia no ponto mais ao norte da rodovia indo em direção ao ponto mais ao sul. Como exceções podemos citar as BR-307, BR-364 e BR-392.")),
-                                 tags$br(), 
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Nomenclatura: BR-3XX")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Diagonais no Pará: BR-308 e BR-316")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("5) Rodovias de Ligação: Estas rodovias apresentam-se em qualquer direção, geralmente ligando rodovias federais, ou pelo menos uma rodovia federal a cidades ou pontos importantes ou ainda a nossas fronteiras internacionais. Geralmente a contagem da quilometragem segue do ponto mais ao norte da rodovia para o ponto mais ao sul. No caso de ligação entre duas rodovias federais , a quilometragem começa na rodovia de maior importância.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Nomenclatura: BR-4XX")),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Ligação no Pará: BR-417 e BR-422"))
-                          )
-                        )
-               ),
-               #===============================================================================#
-               tabPanel("SINISTROS", icon = icon("person-falling-burst"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Todo evento não premeditado de que resulte dano em Veículo ou na sua Carga e/ou lesões em Pessoas e/ou Animais, em que pelo menos uma das partes está em movimento nas vias terrestres ou áreas abertas ao público. Pode originar-se, terminar ou envolver veículo parcialmente na via pública.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) ATROPELAMENTO: Acidente em que o(s) pedestre(s) ou animal(is) sofre(m) o impacto de um veículo, estando pelo menos uma das partes em movimento.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("2) ABALROAMENTO: Acidente em que um veículo é colhido lateralmente por outro veículo, também em movimento")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("3) CAPOTAMENTO: Acidente em que o veículo gira sobre si mesmo, em qualquer sentido, chegando a ficar com as rodas para cima, imobilizando-se em qualquer posição.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("4) CHOQUE COM OBJETO FIXO: Acidente em que há impacto de um veículo contra qualquer objeto fixo ou móvel, mas sem movimento.")),
-                          ),
-                          column(width=4,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("5) COLISÃO ENTRE VEÍCULOS: Acidente em que um veículo em movimento sofre o impacto de outro veículo, também em movimento.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("6) QUEDA DE ÔNIBUS: Acidente em que há impacto em razão de queda livre dentro do ônibus, ou queda de pessoas ou cargas por ela transportadas.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("7) QUEDA DE MOTOCICLETA: Acidente em que há impacto em razão de queda livre da motocicleta, ou queda de pessoas..")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("8) TOMBAMENTO: Acidente em que o veículo sai de sua posição normal, imobilizando-se sobre uma de suas laterais, sua frente ou sua traseira..")) 
-                          )
-                        )   
-               ),
-               #===============================================================================#
-               tabPanel("CONDUTOR", icon = icon("person"),
-                        fluidRow(
-                          column(width=4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("Toda pessoa que conduza um veículo automotor, ou de outro tipo, incluindo os ciclos, ou que guie por uma via, cabeças de gado isoladas, rebanho, bando ou manadas, ou animais de tiro, carga ou sela. Sendo habilitados nas seguintes categorias;")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("1) CATEGORIA A: Todos os veículos automotores e elétricos, de duas ou três rodas, com ou sem carro lateral.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("2) CATEGORIA B: Veículos automotores e elétricos, de quatro rodas cujo peso bruto total não exceda a três mil e quinhentos quilogramas e cuja lotação não exceda a 08 (oito) lugares, excluído o do motorista, contemplando a combinação de unidade acoplada, reboque, semi-reboque ou articulada, desde que atenda a lotação e capacidade de peso para a categoria.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("3) CATEGORIA C: Veículos automotores e elétricos, de quatro rodas cujo peso bruto total não exceda a três mil e quinhentos quilogramas e cuja lotação não exceda a 08 (oito) lugares, excluído o do motorista, contemplando a combinação de unidade acoplada, reboque, semi-reboque ou articulada, desde que atenda a lotação e capacidade de peso para a categoria."))),
-                          column(width=4,
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("4) CATEGORIA D: Veículos automotores e elétricos utilizados no transporte de passageiros, cuja lotação exceda a 08 (oito) lugares e, todos os veículos abrangidos nas categorias “B” e “C”.")),
-                                 tags$br(),
-                                 tags$p(style="text-align:justify;font-si20pt",
-                                        strong("5) Categoria E: Combinação de veículos em que a unidade tratora se enquadre nas categorias B, C ou D e cuja unidade acoplada, reboque, semirreboque, trailer ou articulada tenha 6.000 kg (seis mil quilogramas) ou mais de peso bruto total, ou cuja lotação exceda a 8 (oito) lugares e, todos os veículos abrangidos pelas categorias “B”, “C” e “D”."))
-                          )
-                        )
-               ),
-               #===============================================================================#
-               tabPanel("VEÍCULOS", 
-                        icon = icon("car"),
-                        fluidRow(
-                          column(width = 4,solidHeader = TRUE,
-                                 tags$br(),
-                                 tags$p(style = "text-align:justify;font-si20pt",
-                                        strong("Este item relaciona os tipos de veículos definidos no Anexo I, do Regulamento do Código de Trânsito Brasileiro e
+#===============================================================================#
+tabPanel("RODOVIAS FEDERAIS", icon = icon("road"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("A Nomenclatura das Rodovias no Brasil, são definidos pelo Plano Nacional de Viação (DNIT, 2023).")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) Rodovias Radiais: São as rodovias que partem da Capital Federal em direção aos extremos do país. O sentido de quilometragem vai do Anel Rodoviário de Brasília em direção aos extremos do país, e tendo o quilometro zero de cada estado no ponto da rodovia mais próximo à capital federal.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Nomenclatura: BR-0XX")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Radiais no Pará: BR-010")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("2) Rodovias Longitudinal: São as rodovias que cortam o país na direção Norte-Sul. O sentido de quilometragem vai do norte para o sul. As únicas exceções deste caso são as BR-163 e BR-174 , que tem o sentido de quilometragem do sul para o norte.")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Nomenclatura: BR-1XX")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Longitudinal no Pará: BR-153, BR-155, BR-158 e BR-163 ")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("3) Rodovias Transversais: São as rodovias que cortam o país na direção Leste-Oeste. O sentido de quilometragem vai do leste para o oeste.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Nomenclatura: BR-2XX")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Transversais no Pará: BR-210, BR-222, BR-230 e BR-235"))
+           ), 
+           column(width=4,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("4) Rodovias Diagonais: Estas rodovias podem apresentar dois modos de orientação: Noroeste-Sudeste ou Nordeste-Sudoeste. A quilometragem se inicia no ponto mais ao norte da rodovia indo em direção ao ponto mais ao sul. Como exceções podemos citar as BR-307, BR-364 e BR-392.")),
+                  tags$br(), 
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Nomenclatura: BR-3XX")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Diagonais no Pará: BR-308 e BR-316")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("5) Rodovias de Ligação: Estas rodovias apresentam-se em qualquer direção, geralmente ligando rodovias federais, ou pelo menos uma rodovia federal a cidades ou pontos importantes ou ainda a nossas fronteiras internacionais. Geralmente a contagem da quilometragem segue do ponto mais ao norte da rodovia para o ponto mais ao sul. No caso de ligação entre duas rodovias federais , a quilometragem começa na rodovia de maior importância.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Nomenclatura: BR-4XX")),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Ligação no Pará: BR-417 e BR-422"))
+           )
+         )
+),
+#===============================================================================#
+tabPanel("SINISTROS", icon = icon("person-falling-burst"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Todo evento não premeditado de que resulte dano em Veículo ou na sua Carga e/ou lesões em Pessoas e/ou Animais, em que pelo menos uma das partes está em movimento nas vias terrestres ou áreas abertas ao público. Pode originar-se, terminar ou envolver veículo parcialmente na via pública.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) ATROPELAMENTO: Acidente em que o(s) pedestre(s) ou animal(is) sofre(m) o impacto de um veículo, estando pelo menos uma das partes em movimento.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("2) ABALROAMENTO: Acidente em que um veículo é colhido lateralmente por outro veículo, também em movimento")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("3) CAPOTAMENTO: Acidente em que o veículo gira sobre si mesmo, em qualquer sentido, chegando a ficar com as rodas para cima, imobilizando-se em qualquer posição.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("4) CHOQUE COM OBJETO FIXO: Acidente em que há impacto de um veículo contra qualquer objeto fixo ou móvel, mas sem movimento.")),
+           ),
+           column(width=4,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("5) COLISÃO ENTRE VEÍCULOS: Acidente em que um veículo em movimento sofre o impacto de outro veículo, também em movimento.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("6) QUEDA DE ÔNIBUS: Acidente em que há impacto em razão de queda livre dentro do ônibus, ou queda de pessoas ou cargas por ela transportadas.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("7) QUEDA DE MOTOCICLETA: Acidente em que há impacto em razão de queda livre da motocicleta, ou queda de pessoas..")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("8) TOMBAMENTO: Acidente em que o veículo sai de sua posição normal, imobilizando-se sobre uma de suas laterais, sua frente ou sua traseira..")) 
+           )
+         )   
+),
+#===============================================================================#
+tabPanel("CONDUTOR", icon = icon("person"),
+         fluidRow(
+           column(width=4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("Toda pessoa que conduza um veículo automotor, ou de outro tipo, incluindo os ciclos, ou que guie por uma via, cabeças de gado isoladas, rebanho, bando ou manadas, ou animais de tiro, carga ou sela. Sendo habilitados nas seguintes categorias;")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("1) CATEGORIA A: Todos os veículos automotores e elétricos, de duas ou três rodas, com ou sem carro lateral.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("2) CATEGORIA B: Veículos automotores e elétricos, de quatro rodas cujo peso bruto total não exceda a três mil e quinhentos quilogramas e cuja lotação não exceda a 08 (oito) lugares, excluído o do motorista, contemplando a combinação de unidade acoplada, reboque, semi-reboque ou articulada, desde que atenda a lotação e capacidade de peso para a categoria.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("3) CATEGORIA C: Veículos automotores e elétricos, de quatro rodas cujo peso bruto total não exceda a três mil e quinhentos quilogramas e cuja lotação não exceda a 08 (oito) lugares, excluído o do motorista, contemplando a combinação de unidade acoplada, reboque, semi-reboque ou articulada, desde que atenda a lotação e capacidade de peso para a categoria."))),
+           column(width=4,
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("4) CATEGORIA D: Veículos automotores e elétricos utilizados no transporte de passageiros, cuja lotação exceda a 08 (oito) lugares e, todos os veículos abrangidos nas categorias “B” e “C”.")),
+                  tags$br(),
+                  tags$p(style="text-align:justify;font-si20pt",
+                         strong("5) Categoria E: Combinação de veículos em que a unidade tratora se enquadre nas categorias B, C ou D e cuja unidade acoplada, reboque, semirreboque, trailer ou articulada tenha 6.000 kg (seis mil quilogramas) ou mais de peso bruto total, ou cuja lotação exceda a 8 (oito) lugares e, todos os veículos abrangidos pelas categorias “B”, “C” e “D”."))
+           )
+         )
+),
+#===============================================================================#
+tabPanel("VEÍCULOS", icon = icon("car"),
+         fluidRow(
+           column(width = 4,solidHeader = TRUE,
+                  tags$br(),
+                  tags$p(style = "text-align:justify;font-si20pt",
+                         strong("Este item relaciona os tipos de veículos definidos no Anexo I, do Regulamento do Código de Trânsito Brasileiro e
 Convenção de Trânsito Viário de Viena, bem como da Organização Mundial de Saúde.")),
 tags$br(),
 tags$p(style = "text-align:justify;font-si20pt",
@@ -566,7 +568,7 @@ tags$p(style = "text-align:justify;font-si20pt",
 tags$br(),
 tags$p(style = "text-align:justify;font-si20pt",
        strong("6) CICLOMOTOR: Veículo de duas ou três rodas, provido de um motor de combustão interna, cuja cilindrada não exceda a cinquenta centímetros cúbicos (3,05 polegadas cúbicas) e cuja velocidade máxima de fabricação não exceda a cinquenta quilômetros por hora;")),
-                          ),
+           ),
 column(width = 4,
        tags$br(),
        tags$p(style = "text-align:justify;font-si20pt",
@@ -590,8 +592,8 @@ column(width = 4,
        tags$p(style = "text-align:justify;font-si20pt",
               strong("13) VEÍCULO ESPECIAL: veículo de passageiro, de carga, de tração, de coleção ou misto que possui características diferenciadas para realização de função especial para a qual são necessários arranjos específicos de carroceria e/ou equipamento;"))
 )
-                        )
-               ),
+         )
+),
 #===============================================================================#
 tabPanel("INDICADORES",
          fluidRow(
