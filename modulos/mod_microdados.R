@@ -7,7 +7,7 @@ microdados_ui <- function(id) {
   fluidPage(
     navbarPage(
       title = "MICRODADOS GERAIS",
-      tabPanel("Base de Dados",
+      tabPanel("BASE DE DADOS",
 #1.2 Base de Dados                                                              ----
                fluidRow(
                  box(
@@ -37,9 +37,10 @@ microdados_ui <- function(id) {
                    status = "primary",
                    solidHeader = TRUE,
                    collapsible = TRUE,
-                   height = 50,
+                   headerBorder = TRUE,
                    div(class = "elemente",
-                   DiagrammeROutput(NS(id,"fonte11"),width = "100%")
+                   DiagrammeROutput(NS(id,"fonte11"),
+                                    width = "100%")
                    )
   
                  )
@@ -56,8 +57,9 @@ microdados_ui <- function(id) {
                    status = "primary",
                    solidHeader = TRUE,
                    collapsible = TRUE,
-                   height = 50,
-                   DiagrammeROutput(NS(id,"med1"))
+                   headerBorder = TRUE,
+                   DiagrammeROutput(NS(id,"med1"),
+                                    width = "100%")
                  )
                )
             ),
@@ -73,7 +75,7 @@ tabPanel("CIRETRAN HOMOLOGADAS",
              status = "primary",
              solidHeader = TRUE,
              collapsible = TRUE,
-             height = 50,
+             headerBorder = TRUE,
              DiagrammeROutput(NS(id,"med2"))
            )
          )
@@ -82,16 +84,19 @@ tabPanel("POSTO DE ATENDIMENTO",
          #==============================================================================#
          #1.4 Pareamento                                                                 ----
          fluidRow(
+           column(12,
            #1.4.1 Etapa 1                                                                  ----
            box(
-             width = 12,
+             maximizable = TRUE,
              title = "Posto",
              status = "primary",
+             collapsible = FALSE,
              solidHeader = TRUE,
-             collapsible = TRUE,
-             height = 50,
+             headerBorder = TRUE,
+             width = 12,
              DiagrammeROutput(NS(id,"med3"))
            )
+         )
          )
          )
     )
@@ -146,7 +151,7 @@ microdados_Server <- function(id) {
     
   
 output$tabela1 <- renderDataTable({
-  setwd("C:/Users/mario.valente/Documents/Github2/Dashboard_Modulo_Ciretran_2024/data")
+  setwd("C:/Users/usuario/Documents/Dashboard_Modulo_Ciretran_2024/data")
   CIRETRAN_EMPRESAS <- read_excel("CIRETRAN_EMPRESAS.xls")
   
   datatable(CIRETRAN_EMPRESAS,
@@ -169,14 +174,15 @@ output$tabela1 <- renderDataTable({
 })
 #==============================================================================#
 # 2.3 Fonte de Dados                                                            ----
+library(htmltools)
 
 output$fonte11 <- renderDiagrammeR({
 mermaid("
-graph TD
+graph TB
 A[DETRAN-PA]-->B[CIRETRAN A]
 B-->C[LEI Nº7594/2011]
 B-->D[LEI Nº432/2019]
-B-->E[LEI Nº/2023]
+B-->E[CONADM/2023]
 C-->F[Santarém]
 F-->G[Castanhal]
 G-->H[Marabá]
@@ -195,47 +201,48 @@ E-->T[ANANINDEUA]
 T-->U[CAMETÁ]
 U-->V[SALINÓPOLIS]
 V-->X[TAILÂNDIA]
-", width = 1000)
+", width = 1000, 
+   align = 'center')
 })
 #==============================================================================#
 #2.4 Pareamento                                                                 ----
 #2.4.1 Diagrama med1                                                            ----
-
 output$med1 <- renderDiagrammeR({
-mermaid("graph TD
-A[LEI Nº7594/2011]-->B[DETRAN-PA]
-B-->C[CIRETRAN TIPO B]
-C-->D[Soure]
-D-->E[Alenquer]
-E-->F[ALmeirim]
-F-->G[Monte Alegre]
-G-->H[Obidos]
-H-->I[Vigia]
-C-->J[Oriximiná]
-J-->K[Iguarapé-Açú]
-K-->L[São Miguel]
-L-->M[Santa Luzia]
-M-->N[Tomé-Açú]
-N-->O[Itupiranga]
-C-->P[Jacundá]
-P-->Q[Rondon]
-Q-->R[São Geraldo]
-R-->S[Barcarena]
-S-->T[Igarapé-Miri]
-T-->U[Medicilândia]
-C-->V[Uruará]
-V-->W[Capitão Poço]
-W-->X[Ourilândia do Norte]
-X-->Y[Dom Eliseu]
-Y-->Z[Mãe do Rio]
-Z-->A1[Novo Repartimento]
-C-->A2[Conceição do Araguaia]
-A2--> A3[Santana do Araguaia]
-A3-->A4[Tucumã]
-A4-->A5[Novo Progresso]
-A5-->A6[Canãa dos Carajás]
-A6-->A7[Curionópolis]
-", width = 1000)
+mermaid("graph TB
+  A[LEI Nº7594/2011]-->B[DETRAN-PA]
+  B-->C[CIRETRAN TIPO B]
+  C-->D[Soure]
+  D-->E[Alenquer]
+  E-->F[ALmeirim]
+  F-->G[Monte Alegre]
+  G-->H[Obidos]
+  C-->I[Oriximiná]
+  I-->J[Iguarapé-Açú]
+  J-->K[São Miguel]
+  K-->L[Santa Luzia]
+  L-->M[Tomé-Açú]
+  C-->N[Itupiranga]
+  N-->O[Jacundá]
+  O-->P[Rondon]
+  P-->Q[São Geraldo]
+  Q-->R[Barcarena]
+  C-->S[Igarapé-Miri]
+  S-->T[Medicilândia]
+  T-->U[Uruará]
+  U-->V[Capitão Poço]
+  V-->W[Ourilândia do Norte]
+  C-->X[Dom Eliseu]
+  X-->Y[Mãe do Rio]
+  Y-->Z[Novo Repartimento]
+  Z-->A1[Conceição do Araguaia]
+  A1-->A2[Santana do Araguaia]
+  C-->A3[Tucumã]
+  A3-->A4[Novo Progresso]
+  A4-->A5[Canãa dos Carajás]
+  A5-->A6[Curionópolis]
+  A6-->A7[Rurópolis]
+   C-->A8[Vigia]
+  ", width = 1000)
 })
 #==============================================================================#
 #2.4.1 Diagrama med2                                                            ----
@@ -253,7 +260,8 @@ I-->J[São Domingos]
 C-->K[2019]
 K-->L[Juruti]
 L-->M[Viseu]
-", width = 700)
+", width = 1000, 
+   align = 'center')
 })
 #==============================================================================#
 #==============================================================================#
@@ -264,8 +272,8 @@ mermaid("
 graph TD
 A[DETRAN-PA]-->B[POSTO DE ATENDIMENTO]
 B-->C[Belém]
-C-->D[Antônio Barreto]
-D-->F[Shopping Bosque]
+C-->D[Shopping Boulevard]
+D-->F[Shopping Bosque Grão Pará]
 F-->G[Shopping Metrópole]
 G-->H[Shopping Pátio Belém]
 B-->I[Marabá]
@@ -274,7 +282,8 @@ B-->K[Parauapebas]
 K-->L[Shopping Karajás]
 B-->M[Santarém]
 M-->N[Estação Cidadania]
-", width = 1000)
+", width = 1000, 
+   align = 'center')
 })
 
 
