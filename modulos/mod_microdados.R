@@ -161,14 +161,14 @@ output$tabela1 <- renderDataTable({
             extensions='Buttons',
             options=list(dom='Blfrtip',buttons=c('copy','csv','excel','pdf','print'),
                          engthMenu=list(c(5,50,100,250,-1)), c(5,50,100,250,"All"),
-                         pageLength=5, 
+                         pageLength = 8, 
                         autoWidth=TRUE,
                          scrollX=TRUE),
             rownames=FALSE,
             class='cell-border compact stripe hover row-border order-column dt-body-right',
             style='bootstrap',
             editable='cell',
-            colnames=c('Município','RI','RAT','Tipos','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Assistente','Clínicas','Biometria','Emissão',
+            colnames=c('Município','RI','RAT','Tipos','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Auxiliar','Nº Assistente','Nº Analista','Clínicas','Biometria','Emissão',
 'Estação Coleta','Estação de Prova','Empresas Vistoria','Empresa Estampas','CFC','Parque Retenção', 'Pista Exame', 'Situção Imóvel'),
             caption='Tabela 1. Base de Dados sobre Servicos das CIRETRANS.')
 })
