@@ -117,34 +117,50 @@ tabItems(
   tabItem(tabName="sobre1",
   tabBox(id="t1", width=12,
   tabPanel("CIRETRAN'S",icon=icon("address-card"),
-  fluidRow(column(width=7,
+  fluidRow(column(width=6,
                   position="left",solidHeader = TRUE,
                   tags$img(
                     id="foto1",
                     src="ciretran.jpg",
                     controls="controls",
-                    width=700,
-                    height=550),
+                    width = 700,
+                    height = 550),
                   tags$br(), 
                   tags$a("Photo by Asdecom"),align="left"),
-          column(width=5,
+          column(width=3,
             tags$br(),
-            tags$p(style="text-align: justify;font-si20pt",
-            strong("O Departamento de Trânsito do Estado do Pará (DETRAN-PA) é o órgão Executivo de Trânsito e Executivo Rodoviário do Sistema Nacional de Trânsito no estado do Pará nos termos dos arts. 8°, 21 e 22 da Lei nº 9.503, de 23 de setembro de 1997, que instituiu o Código de Trânsito Brasileiro (CTB), criado pela Lei Nº 4.444, de 20 de dezembro de 1972, integrante do Sistema de Segurança Pública do Estado do Pará, Autarquia com personalidade jurídica de direito público, dotada de autonomia administrativa, financeira e patrimonial, vinculada a Secretaria de Estado de Segurança Pública e Defesa Social, tendo por missão institucional assegurar a execução da Política Nacional de Trânsito no âmbito de sua jurisdição, de forma articulada e integrada, zelando pelo cumprimento da Lei com vistas a garantia de um trânsito em condições seguras para todos com a promoção, valorização e preservação da vida")
-                 ),
-            tags$br(),
-            tags$p(style="text-align:justify;font-si20pt",
+            tags$p(style="text-align:justify;font-si24pt",
           strong("As Circunscrições Regionais de Trânsito (CIRETRAN’s) são unidades administrativas do DETRAN-PA, sediadas nos Municípios do interior do Estado, com competência para desenvolver ações de planejamento, controle, execução, fiscalização e avaliação das atividades relacionadas ao cadastro de veículos, ao processo de habilitação de condutores, operação, fiscalização, engenharia e educação de trânsito, no âmbito de sua circunscrição, previstas no CTB.")),
             tags$br(),
-            tags$p(style="text-align: justify;font-si20pt",
-          strong("As Circunscrições Regionais de Trânsito são classificadas nas categorias A e B, e suas classificações e implantações devem ser aprovadas pelo CONADM e homologadas por ato do Chefe do Poder Executivo. Conforme dito anteriormente, as Circunscrições Regionais de Trânsito – CIRETRAN’s possuem duas classificações, determinadas como tipo A e tipo B.")),
-            tags$br(),
-            tags$p(style="text-align: justify;font-si20pt",
-          strong("Sendo que as CIRETRANS tipo A realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo B, com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011.")
+            tags$p(style="text-align: justify;font-si24pt",
+          strong("As Circunscrições Regionais de Trânsito são classificadas nas categorias A e B, e suas classificações e implantações devem ser aprovadas pelo CONADM e homologadas por ato do Chefe do Poder Executivo. Conforme dito anteriormente, as Circunscrições Regionais de Trânsito -- CIRETRAN's possuem duas classificações, determinadas como tipo A e tipo B. ")
+          ),
+          tags$br(),
+          tags$p(style="text-align: justify;font-si24pt",
+          strong("As CIRETRANS tipo A realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo B, com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011, e possuem duas classificações de acordo com a Lei nº 7.594/2011 artigos 17 E 18:")
           )
-           )
-                                )
-                       ),
+           ),
+          column(
+            width=3,
+            tags$br(),
+            tags$p(style="text-align: justify;font-si24pt",
+          strong("Art. 17: As Ciretrans A são unidades administrativas subordinadas diretamente ao Coordenador das Ciretrans, competindo-lhes o planejamento, controle, operações, fiscalização e educação de trânsito, registro e licenciamento de veículos, habilitação de condutores, engenharia de trânsito, de acordo com o Código de Trânsito Brasileiro e o disposto nesta Lei, dentro de suas respectivas circunscrições administrativas.")
+            ),
+          tags$br(),
+          tags$p(style="text-align: justify;font-si24pt",
+                 strong("Art. 18: As Ciretrans B são unidades administrativas subordinadas diretamente ao Coordenador das Ciretrans, competindo-lhes o planejamento, controle, registro e licenciamento de veículos, habilitação de condutores, de acordo com o Código de Trânsito Brasileiro e o disposto nesta Lei, dentro de suas respectivas circunscrições administrativas.")
+          ),
+          tags$br(),
+          tags$p(style="text-align: justify;font-si24pt",
+                 strong("Sendo que as CIRETRANS tipo A realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo B, com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011.")
+                 ),
+          tags$br(),
+          tags$p(style="text-align: justify;font-si24pt",
+                 strong("Atualmente, o DETRAN possui 18 CIRETRAN's do tipo A e 31 CIRETRAN's do tipo B cujos municípios onde estão instaladas contemplam o total de 87/% da frota de veículos e 91/% do total de condutores habilitados registrados no Estado.")
+                 )
+          )
+          )
+  ),
 #===============================================================================#
 tabPanel("ATIVIDADES", icon=icon("hospital"),
          fluidRow(
@@ -160,6 +176,7 @@ tabPanel("ATIVIDADES", icon=icon("hospital"),
            column(
              width=4,position="center",solidHeader = TRUE,
              tags$br("ATIVIDADES"),
+             tags$br(),
              tags$p(style="text-align:justify;font-si20pt",
                     strong("1) Consultas sobre infrações recebidas;"),
                     tags$br(),
@@ -179,13 +196,13 @@ tabPanel("ATIVIDADES", icon=icon("hospital"),
                     tags$br(),
                     strong("9) Apreensão de CNH;"),
                     tags$br(),
-                    strong("10) Apreensão de veículos;")
+                    strong("10) Apreensão de veículos;"),
+                    tags$br(),
+                    strong("11) Liberação de Documentos e de Veículos;")
              )
            )
          ) 
 ),
-
-
 tabPanel("REGIÃO DE TRÂNSITO (RAT)", icon=icon("hospital"),
          fluidRow(
            column(
@@ -246,21 +263,24 @@ tabPanel("REGIÃO DE TRÂNSITO (RAT)", icon=icon("hospital"),
             ),
             tags$br(),
             tags$p(style="text-align:justify;font-si20pt",
-                   strong("9) REGIÃO DE TRÂNSITO DE REDENÇÃO: Àgua Azul do Norte, Bannach, Conceição do Araguaia, Cumaru do Norte, Floresta do Araguaia, Ourilândia do Norte, Pau D'arco, Redenção, Rio Maria, Santana do Araguaia, Santa Maria das Barreiras, São Félix do Xingu, Sapucaia, Tucumã e Xinguara")
+                   strong("9) REGIÃO DE TRÂNSITO DE TUCURUÍ: Breu Branco, Goianésia, Novo Repartimento, Pacajá e Tucuruí.")
             ),
             tags$br(),
             tags$p(style="text-align:justify;font-si20pt",
-                   strong("10) REGIÃO DE TRÂNSITO DE ITAITUBA: Itaituba, Jacareacanga, Novo Progresso, Rurópolis e Trairão")
+                   strong("10) REGIÃO DE TRÂNSITO DE Redenção: Àgua Azul do Norte, Bannach, Conceição do Araguaia, Cumaru do Norte, Floresta do Araguaia, Ourilândia do Norte, Pau D'arco, Redenção, Rio Maria, Santana do Araguaia, Santa Maria das Barreiras, São Félix do Xingu, Sapucaia, Tucumã e Xinguara")
             ),
             tags$br(),
             tags$p(style="text-align:justify;font-si20pt",
-                   strong("11) REGIÃO DE TRÂNSITO DE PARAUAPEBAS: Cannãa dos Carajás, Curionópolis, Eldorado dos Carajás e Parauapebas")
+                   strong("11) REGIÃO DE TRÂNSITO DE ITAITUBA: Itaituba, Jacareacanga, Novo Progresso, Rurópolis e Trairão.")
             ),
             tags$br(),
             tags$p(style="text-align:justify;font-si20pt",
-                   strong("12) REGIÃO DE TRÂNSITO DE BREVES: Afuá, Anajás, Bagre, Breves, Chaves, Curralinho, Lengaço, Muaná e Portel")
+                   strong("12) REGIÃO DE TRÂNSITO DE PARAUAPEBAS: Cannãa dos Carajás, Curionópolis, Eldorado dos Carajás e Parauapebas.")
             ),
-            
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("13) REGIÃO DE TRÂNSITO DE BREVES: Afuá, Anajás, Bagre, Breves, Chaves, Curralinho, Lengaço, Muaná e Portel.")
+            )
            )
          ) 
 ),
