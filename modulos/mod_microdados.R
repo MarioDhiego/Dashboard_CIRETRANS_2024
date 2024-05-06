@@ -151,7 +151,7 @@ microdados_Server <- function(id) {
     
   
 output$tabela1 <- renderDataTable({
-  setwd("C:/Users/usuario/Documents/Dashboard_Modulo_Ciretran_2024/data")
+  setwd("C:/Users/mario.valente/Documents/Github2/Dashboard_Modulo_Ciretran_2024/data")
   CIRETRAN_EMPRESAS <- read_excel("CIRETRAN_EMPRESAS.xls")
   
   datatable(CIRETRAN_EMPRESAS,
@@ -161,40 +161,40 @@ output$tabela1 <- renderDataTable({
             extensions='Buttons',
             options=list(dom='Blfrtip',buttons=c('copy','csv','excel','pdf','print'),
                          engthMenu=list(c(5,50,100,250,-1)), c(5,50,100,250,"All"),
-                         pageLength = 8, 
-                        autoWidth=TRUE,
+                         pageLength = 7, 
+                         autoWidth=TRUE,
                          scrollX=TRUE),
             rownames=FALSE,
             class='cell-border compact stripe hover row-border order-column dt-body-right',
             style='bootstrap',
             editable='cell',
-            colnames=c('Município','RI','RAT','Tipos','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Auxiliar','Nº Assistente','Nº Analista','Clínicas','Biometria','Emissão',
+            colnames=c('Município','Região de Integração','RAT','Tipos','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Auxiliar','Nº Assistente','Nº Analista','Clínicas','Biometria','Emissão',
 'Estação Coleta','Estação de Prova','Empresas Vistoria','Empresa Estampas','CFC','Parque Retenção', 'Pista Exame', 'Situção Imóvel'),
             caption='Tabela 1. Base de Dados sobre Servicos das CIRETRANS.')
 })
 #==============================================================================#
 # 2.3 Fonte de Dados                                                            ----
-library(htmltools)
+#library(htmltools)
 
 output$fonte11 <- renderDiagrammeR({
 mermaid("
 graph TB
-A[DETRAN-PA]-->B[CIRETRAN A]
+A[DETRAN-PA]-->B[CIRETRAN TIPO A]
 B-->C[LEI Nº7594/2011]
 B-->D[LEI Nº432/2019]
 B-->E[CONADM/2023]
-C-->F[Santarém]
-F-->G[Castanhal]
-G-->H[Marabá]
-H-->I[Abaetetuba]
-C-->J[Altamira]
-J-->K[Capanema]
-K-->L[Paragominas]
-L-->M[Tucuruí]
-C-->N[Redenção]
-N-->O[Itaituba]
-O-->P[Parauapebas]
-P-->Q[Breves]
+C-->F[SANTARÉM]
+F-->G[CASTANHAL]
+G-->H[MARABÁ]
+H-->I[ABAETETUBA]
+C-->J[ALTAMIRA]
+J-->K[CAPANEMA]
+K-->L[PARAGOMINAS]
+L-->M[TUCURUÍ]
+C-->N[REDENÇÃO]
+N-->O[ITAITUBA]
+O-->P[PARAUAPEBAS]
+P-->Q[BREVES]
 D-->R[BRAGANÇA]
 R-->S[SÃO FÉLIX]
 E-->T[ANANINDEUA]
@@ -211,37 +211,37 @@ output$med1 <- renderDiagrammeR({
 mermaid("graph TB
   A[LEI Nº7594/2011]-->B[DETRAN-PA]
   B-->C[CIRETRAN TIPO B]
-  C-->D[Soure]
-  D-->E[Alenquer]
-  E-->F[ALmeirim]
-  F-->G[Monte Alegre]
-  G-->H[Obidos]
-  C-->I[Oriximiná]
-  I-->J[Iguarapé-Açú]
-  J-->K[São Miguel]
-  K-->L[Santa Luzia]
-  L-->M[Tomé-Açú]
-  C-->N[Itupiranga]
-  N-->O[Jacundá]
-  O-->P[Rondon]
-  P-->Q[São Geraldo]
-  Q-->R[Barcarena]
-  C-->S[Igarapé-Miri]
-  S-->T[Medicilândia]
-  T-->U[Uruará]
-  U-->V[Capitão Poço]
-  V-->W[Ourilândia do Norte]
-  C-->X[Dom Eliseu]
-  X-->Y[Mãe do Rio]
-  Y-->Z[Novo Repartimento]
-  Z-->A1[Conceição do Araguaia]
-  A1-->A2[Santana do Araguaia]
-  C-->A3[Tucumã]
-  A3-->A4[Novo Progresso]
-  A4-->A5[Canãa dos Carajás]
-  A5-->A6[Curionópolis]
-  A6-->A7[Rurópolis]
-   C-->A8[Vigia]
+  C-->D[SOURE]
+  D-->E[ALENQUER]
+  E-->F[ALMERIM]
+  F-->G[MONTE ALEGRE]
+  G-->H[OBIDOS]
+  C-->I[ORIXIMINÁ]
+  I-->J[IGUARAPÉ-AÇÚ]
+  J-->K[SÃO MIGUEL]
+  K-->L[SANTA LUZIA]
+  L-->M[TOMÉ-AÇÚ]
+  C-->N[ITUPIRANGA]
+  N-->O[JACUNDÁ]
+  O-->P[RONDON]
+  P-->Q[SÃO GERALDO]
+  Q-->R[BARCARENA]
+  C-->S[IGARAPÉ-MIRI]
+  S-->T[MEDICILÂNDIA]
+  T-->U[URUARÁ]
+  U-->V[CAPITÃO POÇO]
+  V-->W[OUTILÂNDIA DO NORTE]
+  C-->X[DOM ELISEU]
+  X-->Y[MÃE DO RIO]
+  Y-->Z[NOVO REPARTIMENTO]
+  Z-->A1[CONCEIÇÃO DO ARAGUAIA]
+  A1-->A2[SANTANA DO ARAGUAIA]
+  C-->A3[TUCUMÃ]
+  A3-->A4[NOVO PROGRESSO]
+  A4-->A5[CANÃA DOS CARAJÁS]
+  A5-->A6[CURIONÓPOLIS]
+  A6-->A7[RURÓPOLIS]
+   C-->A8[VIGIA]
   ", width = 1000)
 })
 #==============================================================================#
@@ -252,14 +252,14 @@ output$med2 <- renderDiagrammeR({
 A[DETRAN-PA]-->B[CONADM]
 B-->C[HOMOLOGADAS]
 C-->D[2008]
-D-->E[Ulianópolis]
+D-->E[ULIANÓPOLIS]
 C-->F[2009]
-F-->G[Marituba]
+F-->G[MARITUBA]
 C-->I[2013]
-I-->J[São Domingos]
+I-->J[SÃO DOMINGOS]
 C-->K[2019]
-K-->L[Juruti]
-L-->M[Viseu]
+K-->L[JURUTI]
+L-->M[VISEU]
 ", width = 1000, 
    align = 'center')
 })
@@ -271,29 +271,20 @@ output$med3 <- renderDiagrammeR({
 mermaid("
 graph TD
 A[DETRAN-PA]-->B[POSTO DE ATENDIMENTO]
-B-->C[Belém]
-C-->D[Shopping Boulevard]
-D-->F[Shopping Bosque Grão Pará]
-F-->G[Shopping Metrópole]
-G-->H[Shopping Pátio Belém]
+B-->C[BELÉM]
+C-->D[SHOPPING BOULEVARD]
+D-->F[SHOPPING BOSQUE GRÃO PARÁ]
+F-->G[SHOPPING METRÓPOLE]
+G-->H[SHOPPING PÁTIO BELÉM]
 B-->I[Marabá]
-I-->J[Shopping Pátio Marabá]
-B-->K[Parauapebas]
-K-->L[Shopping Karajás]
-B-->M[Santarém]
-M-->N[Estação Cidadania]
+I-->J[SHOPPING PÁTIO MARABÁ]
+B-->K[PARAUAPEBAS]
+K-->L[SHOPPING KARAJÁS]
+B-->M[SANTARÉM]
+M-->N[ESTAÇÃO CIDADANIA]
 ", width = 1000, 
    align = 'center')
 })
-
-
-
-
-
-
-
-
-
 
 #==============================================================================#
 #3.0 DOWANLOAD DE ARQUIVOS                                                      ----
