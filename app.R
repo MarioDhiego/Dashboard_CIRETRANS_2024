@@ -195,19 +195,72 @@ tabPanel("REGIÃO DE TRÂNSITO (RAT)", icon=icon("hospital"),
                     strong("O Diretor Geral do DETRAN-PA, no uso de suas atribuições legais, em especial ao constante no Art.57, IV do Anexo do Decreto Nº 1.635 de 2005 que homologa o Regimento Interno do DETRAN-PA; Considerando o disposto nos Artigos 120, 123 e incisos e 124 da Lei 9.503 de 23 de setembro de 1997 que institui o Código de Trânsito Brasileiro - CTB, resolve:.")),
              tags$br(),
              tags$p(style="text-align:justify;font-si20pt",
-                    strong("Art. 1º Determinar que os processos de licenciamento anual de veículos que requeiram vistoria, expedição de 2ª via de CRV, alteração de características de veículos, inclusão ou baixa de reserva de domínio, transferência de jurisdição, mudança de categoria, alteração de dados cadastrais no documento do veículo, gravação ou regravação do chassi, regravação de motor e baixa de veículo só poderão ser realizados junto a este DETRAN-PA no domicílio ou residência do proprietário e/ou arredatário quando houver CIRETRAN e, não havendo Unidades do DETRAN-PA no município de domicílio ou residência prorietário e/ou arrendatário, os processos de serviços deverão ser realizados em uma das CIRETRAN’S da Região de Trânsito do domicílio ou residência do prorietário conforme o anexo I da Portaria Nº681 de 2013.")),
+                    strong("Art. 1º Determinar que os processos de licenciamento anual de veículos que requeiram vistoria, expedição de 2ª via de CRV, alteração de características de veículos, inclusão ou baixa de reserva de domínio, transferência de jurisdição, mudança de categoria, alteração de dados cadastrais no documento do veículo, gravação ou regravação do chassi, regravação de motor e baixa de veículo só poderão ser realizados junto a este DETRAN-PA no domicílio ou residência do proprietário e/ou arredatário quando houver CIRETRAN e, não havendo Unidades do DETRAN-PA no município de domicílio ou residência prorietário e/ou arrendatário, os processos de serviços deverão ser realizados em uma das CIRETRAN’S da Região de Trânsito do domicílio ou residência do prorietário conforme o anexo I da Portaria Nº681 de 2013.")
+                    ),
+             tags$br(),
+             tags$p(style="text-align:justify;font-si20pt",
+                    strong("1° O Posto Avançado da Antônio Barreto atenderá a todos sos serviços com cobertura aos Municípios da região de Trânsito de Belém conforme Anexo I desta Portaria. ")
+             ),
+             tags$br(),
+             tags$p(style="text-align:justify;font-si20pt",
+                    strong("2º Os postos de Atendimento das Concessionárias de Belém só poderão atender os serviços de primeiro emplacamento, trasnferência de propriedade e transferência de jurisdição de veículos transacionados diretamente com a Concesssionária")
+             )
+             
            ),
            column(
              width=4,position="center",solidHeader = TRUE,
-             tags$br("Região Administrativa de Trânsito"),
+             #tags$br("Região Administrativa de Trânsito"),
              tags$br(),
              tags$p(style="text-align:justify;font-si25pt",
-            strong("1) Região de Trânsito de Belém: Ananindeua, Belém, Benevides, Cachoeira do Arari, Marituba, Ponta de Pedras, Salvaterra, Santa Bárbara, Santa Cruz do Arari, São Sebastião da Boa Vista e Soure"),
+            strong("1) REGIÃO DE TRÂSITO DE BELÉM: Ananindeua, Belém, Benevides, Cachoeira do Arari, Marituba, Ponta de Pedras, Salvaterra, Santa Bárbara, Santa Cruz do Arari, São Sebastião da Boa Vista e Soure"),
              ),
             tags$br(),
             tags$p(style="text-align:justify;font-si25pt",
-                   strong("2) Região de Trânsito de Santarém: Alenquer Almeirim, Aveiro, Belterra, Curuá, Faro, Juruti, Mojuí dos Campos, Monte Alegre, Òbidos, Oriximiná, Prainha, Santarém e Terra Santa"),
-            )
+                   strong("2) REGIÃO DE TRÂNSITO DE SANTARÉM: Alenquer Almeirim, Aveiro, Belterra, Curuá, Faro, Juruti, Mojuí dos Campos, Monte Alegre, Òbidos, Oriximiná, Prainha, Santarém e Terra Santa"),
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si25pt",
+                   strong("3) REGIÃO DE TRÂNSITO DE CASTANHAL: Bujaru, Castanhal, Colares, Concórdia do Pará, Curuçá, Igarapé-Açú, Inhangapi, Irituia, Magalhães, Maracanã, Marapanim, São caetano de Odivelas, São Domingos do capim, São Francisco do Pará, São João da Ponta, São Miguel do Guamá, Santa Izabel do Pará, Santa Maria do Pará, Santo Antônio do Tauá, Terra Alta, Tomé-Açú e Vigia"),
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si25pt",
+                   strong("4) REGIÃO DE TRÂNSITO DE MARABÁ: Abel Figueiredo, Bom Jesus do Tocantins, Brejo Grande do Araguaia, Itupiranga, Jacundá, Marabá, Nova Ipixuna, Palestina do Pará, Piçarra, Rondon do Pará, São Domingos do Araguaia, São Geraldo do Araguaia e São João do Araguaia"),
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si25pt",
+            strong("5) REGIÃO DE TRÂNSITO DE ABAETETUBA: Abaetetuba, Acará, Baião Barcarena, Cametá, Igarapé-Miri, Limoeiro do Ajuru, Mocajuba, Moju, Oueiras do Pará, Tailândia."),
+            ),
+            tags$br(), 
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("6) REGIÃO DE TRÂNSITO DE ALTAMIRA: Altamira, Anapu, Brasil Novo, Gurupá, Medicilândia, Placas, Porto de Moz, Senador José Porfírio, Uruará e Vitória do Xingu")),
+           ),
+           column(
+             width=4,position="center",solidHeader = TRUE,
+             tags$br(),  
+             tags$p(style="text-align:justify;font-si20pt",
+            strong("7) REGIÃO DE TRÂNSITO DE CAPANEMA: Augusto Corrêa, Bonito, Bragança, Cachoeira do Piriá, Capanema, Capitão Poço, Garrafão do Norte, NOva ESperança do Piriá, Nova Timboteua, Ourém, Peixe-Boi, Primavera, Quatipuru, Salinópolis, Santarém Novo, São João de Pirabas, Santa Luzia do Pará, Traquateua e Viseu")
+             ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("8) REGIÃO DE TRÂNSITO DE PARAGOMINAS: Dom Eliseu, Ipixuna do Pará, Mãe do Rio, Paragominas e Ulianópolis")
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("9) REGIÃO DE TRÂNSITO DE REDENÇÃO: Àgua Azul do Norte, Bannach, Conceição do Araguaia, Cumaru do Norte, Floresta do Araguaia, Ourilândia do Norte, Pau D'arco, Redenção, Rio Maria, Santana do Araguaia, Santa Maria das Barreiras, São Félix do Xingu, Sapucaia, Tucumã e Xinguara")
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("10) REGIÃO DE TRÂNSITO DE ITAITUBA: Itaituba, Jacareacanga, Novo Progresso, Rurópolis e Trairão")
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("11) REGIÃO DE TRÂNSITO DE PARAUAPEBAS: Cannãa dos Carajás, Curionópolis, Eldorado dos Carajás e Parauapebas")
+            ),
+            tags$br(),
+            tags$p(style="text-align:justify;font-si20pt",
+                   strong("12) REGIÃO DE TRÂNSITO DE BREVES: Afuá, Anajás, Bagre, Breves, Chaves, Curralinho, Lengaço, Muaná e Portel")
+            ),
+            
            )
          ) 
 ),
