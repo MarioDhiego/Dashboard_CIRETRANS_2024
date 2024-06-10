@@ -20,8 +20,9 @@ microdados_ui <- function(id) {
                    dataTableOutput(NS(id,"tabela1")),
                    footer = list(
                      column(11,
-                            tags$b("Fonte: "), "DETRAN-PA"),
-                     downdoload_ui(NS(id,"d1")) 
+                            tags$b("Fonte: "), "DETRAN-PA")
+                     #,
+                     #downdoload_ui(NS(id,"d1")) 
                    )
                    
                  )
@@ -108,7 +109,7 @@ microdados_Server <- function(id) {
   moduleServer(id, function(input, output, session) {
 #2.1 Dados                                                                      ----
     output$txt1 <- renderText({
-      paste0("Base de Dados sobre Servicos das CIRETRAN'S - ",min(Pareamento_Limpo$Ano)," a ",max(Pareamento_Limpo$Ano))
+      paste0("Base de Dados sobre Servicos das CIRETRAN'S - 2024")
     })
 #==============================================================================#
 #2.2 Base de Dados                                                              ----
@@ -152,25 +153,23 @@ microdados_Server <- function(id) {
   
 output$tabela1 <- renderDataTable({
   setwd("C:/Users/mario.valente/Documents/Github2/Dashboard_Modulo_Ciretran_2024/data")
-  CIRETRAN_EMPRESAS <- read_excel("CIRETRAN_EMPRESAS.xls")
+  CIRETRAN_EMPRESAS <- readxl::read_excel("CIRETRAN_EMPRESAS.xls")
   
-  datatable(CIRETRAN_EMPRESAS,
+  DT::datatable(CIRETRAN_EMPRESAS,
             filter = "top", 
-            #filter = "bottom",
             plugins='natural',
             extensions='Buttons',
             options=list(dom='Blfrtip',buttons=c('copy','csv','excel','pdf','print'),
                          engthMenu=list(c(5,50,100,250,-1)), c(5,50,100,250,"All"),
                          pageLength = 7, 
-                         autoWidth=TRUE,
-                         scrollX=TRUE),
-            rownames=FALSE,
-            class='cell-border compact stripe hover row-border order-column dt-body-right',
-            style='bootstrap',
-            editable='cell',
-            colnames=c('Município','Região de Integração','RAT','Tipos','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Auxiliar','Nº Assistente','Nº Analista','Clínicas','Biometria','Emissão',
-'Estação Coleta','Estação de Prova','Empresas Vistoria','Empresa Estampas','CFC','Parque Retenção', 'Pista Exame', 'Situção Imóvel'),
-            caption='Tabela 1. Base de Dados sobre Servicos das CIRETRANS.')
+                         autoWidth = TRUE,
+                         scrollX = TRUE),
+            rownames = FALSE,
+            class = 'cell-border compact stripe hover row-border order-column dt-body-right',
+            style = 'bootstrap',
+            editable = 'cell',
+            colnames = c('Município','Região de Integração','Região de Trânsito','Tipos Ciretran','Nº Servidores','Nº Vistoriador','Nº AFT','Nº Auxiliar','Nº Assistente','Nº Analista/Técnico','Clínicas','Biometria','Emissão CNH','Estação Coleta','Estação de Prova','Empresas Vistoria','Empresa Estampas','CFC','Vistoria','Parque Retenção', 'Pista Exame', 'Situção Imóvel'),
+            caption = 'Tabela 1. Base de Dados sobre Servicos das CIRETRANS.')
 })
 #==============================================================================#
 # 2.3 Fonte de Dados                                                            ----

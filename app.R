@@ -33,7 +33,7 @@ shinyApp(
     #                      right="Belém-PA, 2023 V.1"),
 #===============================================================================#
 # 2.2 DashboardHeader ----------------------------------------------------------
-header = dashboardHeader(title= span(tags$b("CIRETRAN'S")),
+header = dashboardHeader(title = span(tags$b("CIRETRAN'S")),
 
 #===============================================================================#
 # 2.2.1 Redes Sociais ----------------------------------------------------------
@@ -126,24 +126,24 @@ tabItems(
                     width = 700,
                     height = 550),
                   tags$br(), 
-                  tags$a("Photo by Asdecom"),align="left"),
-          column(width=3,
+                  tags$a("Photo by Asdecom"),align = "left"),
+          column(width = 3,
             tags$br(),
-            tags$p(style="text-align:justify;font-si24pt",
+            tags$p(style = "text-align:justify;font-si24pt",
           strong("As Circunscrições Regionais de Trânsito (CIRETRAN’s) são unidades administrativas do DETRAN-PA, sediadas nos Municípios do interior do Estado, com competência para desenvolver ações de planejamento, controle, execução, fiscalização e avaliação das atividades relacionadas ao cadastro de veículos, ao processo de habilitação de condutores, operação, fiscalização, engenharia e educação de trânsito, no âmbito de sua circunscrição, previstas no CTB.")),
             tags$br(),
-            tags$p(style="text-align: justify;font-si24pt",
+            tags$p(style = "text-align: justify;font-si24pt",
           strong("As Circunscrições Regionais de Trânsito são classificadas nas categorias A e B, e suas classificações e implantações devem ser aprovadas pelo CONADM e homologadas por ato do Chefe do Poder Executivo. Conforme dito anteriormente, as Circunscrições Regionais de Trânsito -- CIRETRAN's possuem duas classificações, determinadas como tipo A e tipo B. ")
           ),
           tags$br(),
-          tags$p(style="text-align: justify;font-si24pt",
+          tags$p(style = "text-align: justify;font-si24pt",
           strong("As CIRETRANS tipo A realizam os mesmos serviços da Sede-Belém, já as CIRETRANS tipo B, com exceção de Canaã dos Carajás e Santa Izabel do Pará, não realizam exames de legislação e prático de trânsito, conforme disposto na Lei nº 7.594/2011, e possuem duas classificações de acordo com a Lei nº 7.594/2011 artigos 17 E 18:")
           )
            ),
           column(
             width=3,
             tags$br(),
-            tags$p(style="text-align: justify;font-si24pt",
+            tags$p(style = "text-align: justify;font-si24pt",
           strong("Art. 17: As Ciretrans A são unidades administrativas subordinadas diretamente ao Coordenador das Ciretrans, competindo-lhes o planejamento, controle, operações, fiscalização e educação de trânsito, registro e licenciamento de veículos, habilitação de condutores, engenharia de trânsito, de acordo com o Código de Trânsito Brasileiro e o disposto nesta Lei, dentro de suas respectivas circunscrições administrativas.")
             ),
           tags$br(),
@@ -156,7 +156,7 @@ tabItems(
                  ),
           tags$br(),
           tags$p(style="text-align: justify;font-si24pt",
-                 strong("Atualmente, o DETRAN possui 18 CIRETRAN's do tipo A e 31 CIRETRAN's do tipo B cujos municípios onde estão instaladas contemplam o total de 87/% da frota de veículos e 91/% do total de condutores habilitados registrados no Estado.")
+                 strong("Atualmente, o DETRAN possui 18 CIRETRAN's do tipo A e 31 CIRETRAN's do tipo B cujos municípios onde estão instaladas contemplam o total de 87% da frota de veículos e 91% do total de condutores habilitados registrados no Estado.")
                  )
           )
           )
@@ -283,6 +283,50 @@ tabPanel("REGIÃO DE TRÂNSITO (RAT)", icon=icon("hospital"),
             )
            )
          ) 
+),
+
+tabPanel("SERVIÇOS VEÍCULOS", icon=icon("hospital"),
+  fluidRow(
+    column(
+      width=4,position="center",solidHeader = TRUE,
+      tags$br(), 
+      tags$p(style="text-align:justify;font-si25pt",
+             strong(" De acordo com a Portaria nº3883/2021/DG/DHCRV/CRV/DETRAN de 29 de outubro de 2021 somado a Portaria nº3383/2021/DG/DHCRV/CRV/DETRAN de 06 de dezembro de 2021, Estabelece procedimentos para serviços de Registro de Veículos, nas Unidades de Atendimento do DETRAN-PA."),
+      ),
+      tags$br(),
+      tags$p(style="text-align:justify;font-si25pt",
+             strong("O diretor geral do Departamento de Trânsito do Estado do Pará, no uso de suas atribuições legais, em especial ao constante do Art. 57, IV do anexo do Decreto nº 1.635 de 2005 que homologa o Regimento Interno do DETRAN-PA;"),
+      ),
+      tags$br(), 
+      tags$p(style="text-align:justify;font-si25pt",
+             strong(" Considerando o dispositivo nos Artigos 120, 123 e incisos e 124 e incisos da Lei nº9.503/1997 que institui o Código de Trânsito Brasileiro."),
+      ),
+      tags$br(),
+      tags$p(style="text-align:justify;font-si25pt",
+             strong("  Art. 1º - Determinar que nas CIRETRANS, os processos de:"),
+      ),
+      tags$br(),
+      tags$p(style="text-align:justify;font-si20pt",
+             strong("1) Expedição de 2ª via do CRV;;"),
+             tags$br(),
+             strong("2) Alteração de Características de veículos;"),
+             tags$br(),
+             strong("3) Inclusão ou Baixa de Reversa de Domínio;"),
+             tags$br(),
+             strong("4) Transferência de Propriedade;"),
+             tags$br(),
+             strong("5) Transferência de Jurisdição;"),
+             tags$br(),
+             strong("6) Mudança de Categoria;"),
+             tags$br(),
+             strong("7) Alteração de dados Cadastrais do Documento do Veículo;"),
+             tags$br(),
+             strong("8) Gravação ou Regravação de Chassi;"),
+             tags$br(),
+             strong("9) Regravação de Motor e Baixa do Veículo;")
+      )
+    )
+  )
 ),
 
 

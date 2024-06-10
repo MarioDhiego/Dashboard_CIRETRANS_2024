@@ -14,7 +14,7 @@ downdoload_ui <- function(id) {
                    tags$b("Download"),
                    icon = icon("download"),
                    style = "background-color: #286090; color: #fff;", 
-                   class="bg-success"
+                   class = "bg-success"
                    ),
       #tags$p("Formatos para Download:"),
       tags$p("Excel, CSV ou RData"),
